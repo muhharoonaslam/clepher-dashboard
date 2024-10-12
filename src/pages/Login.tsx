@@ -19,7 +19,7 @@ const Login: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-[#f0f4ff]">
-      <div className="bg-white p-10 rounded-3xl shadow-lg w-[500px] mb-4">
+      <div className="bg-white p-10 rounded-3xl shadow-lg w-[500px] mb-2">
         <div className="flex justify-center mb-2">
           <img
             src="https://cleverstorage.b-cdn.net/assets/clepher-logo-black.png"
@@ -91,7 +91,7 @@ const Login: React.FC = () => {
         <p className="text-center text-gray-400 mt-3">Clever Messenger © 2024</p>
       </div>
 
-      <p className="text-center text-gray-500 mt-4">
+      <p className="text-center text-gray-500 mt-1">
         Don&apos;t got a Clever Messenger account yet?
       </p>
     </div>
