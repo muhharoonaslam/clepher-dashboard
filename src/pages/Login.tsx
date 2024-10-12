@@ -20,7 +20,7 @@ const Login: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-[#f0f4ff]">
       <div className="bg-white p-10 rounded-3xl shadow-lg w-[500px] mb-4">
-        <div className="flex justify-center mb-6">
+        <div className="flex justify-center mb-2">
           <img
             src="https://cleverstorage.b-cdn.net/assets/clepher-logo-black.png"
             alt="Clepher Logo"
@@ -28,7 +28,7 @@ const Login: React.FC = () => {
           />
         </div>
 
-        <p className="text-center text-gray-500 mb-6">
+        <p className="text-center text-gray-500 mb-12">
           Log in to access your account
         </p>
 
@@ -88,9 +88,7 @@ const Login: React.FC = () => {
           Forgot password?
         </a>
 
-        <hr className="my-4 border-gray-300" />
-
-        <p className="text-center text-gray-400">Clever Messenger © 2024</p>
+        <p className="text-center text-gray-400 mt-3">Clever Messenger © 2024</p>
       </div>
 
       <p className="text-center text-gray-500 mt-4">
