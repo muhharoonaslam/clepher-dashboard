@@ -1,14 +1,15 @@
 import { createStore, combineReducers } from 'redux';
 import authReducer from './store/auth/reducer';
+import botReducer from './store/bots/reducer';
 import { AuthActionTypes } from './store/auth/actions';
 
-// Root reducer
 const rootReducer = combineReducers({
   auth: authReducer,
+  bots: botReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
-export type AppDispatch = (action: AuthActionTypes) => AuthActionTypes;  // Use the typed actions here
+export type AppDispatch = (action: AuthActionTypes) => AuthActionTypes;  
 
 const store = createStore(rootReducer);
 

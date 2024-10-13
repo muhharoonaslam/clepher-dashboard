@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useValidation } from "../hooks/useValidation";
 import { loginRequest, loginSuccess, loginFailure, clearErrors } from "../store/auth/actions";
 import { RootState, AppDispatch } from "../store";
+import { useNavigate } from 'react-router-dom';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -13,6 +14,8 @@ const Login: React.FC = () => {
 
   const { errors, validateForm, resetErrors } = useValidation();
 
+  const navigate = useNavigate();
+  
   useEffect(() => {
     return () => {
       dispatch(clearErrors());
@@ -30,6 +33,7 @@ const Login: React.FC = () => {
       setTimeout(() => {
         if (email === "devtest@dashboard.com" && password === "password") {
           dispatch(loginSuccess(email));
+          navigate('/home');
         } else {
           dispatch(loginFailure("Invalid email or password"));
         }
