@@ -1,11 +1,9 @@
+export const LOGIN_REQUEST = "LOGIN_REQUEST";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_FAILURE = "LOGIN_FAILURE";
+export const LOGOUT = "LOGOUT";
+export const CLEAR_ERRORS = "CLEAR_ERRORS";
 
-export const LOGIN_REQUEST = 'LOGIN_REQUEST';
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-export const LOGIN_FAILURE = 'LOGIN_FAILURE';
-export const LOGOUT = 'LOGOUT';
-export const CLEAR_ERRORS = 'CLEAR_ERRORS';
-
-// Define action types
 interface LoginRequestAction {
   type: typeof LOGIN_REQUEST;
 }
@@ -35,7 +33,6 @@ export type AuthActionTypes =
   | LogoutAction
   | ClearErrorsAction;
 
-// Define action creators for synchronous actions
 export const loginRequest = (): LoginRequestAction => ({
   type: LOGIN_REQUEST,
 });

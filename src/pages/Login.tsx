@@ -1,11 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useValidation } from "../hooks/useValidation";
+import { loginRequest, loginSuccess, loginFailure, clearErrors } from "../store/auth/actions";
+import { RootState, AppDispatch } from "../store";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const dispatch = useDispatch<AppDispatch>();  
+  const { loading, error } = useSelector((state: RootState) => state.auth);
+
   const { errors, validateForm, resetErrors } = useValidation();
+
+  useEffect(() => {
+    return () => {
+      dispatch(clearErrors());
+    };
+  }, [dispatch]);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -13,7 +25,15 @@ const Login: React.FC = () => {
     resetErrors();
 
     if (validateForm(email, password)) {
-      console.log("Form is valid, handle login...");
+      dispatch(loginRequest());
+
+      setTimeout(() => {
+        if (email === "devtest@dashboard.com" && password === "password") {
+          dispatch(loginSuccess(email));
+        } else {
+          dispatch(loginFailure("Invalid email or password"));
+        }
+      }, 1000);
     }
   };
 
@@ -38,9 +58,9 @@ const Login: React.FC = () => {
               type="email"
               placeholder="E-mail Address"
               className={`w-full p-3 border ${
-                errors.emailError ? "border-red-500" : "border-gray-300"
+                errors.emailError || error ? "border-red-500" : "border-gray-300"
               } rounded-md focus:outline-none focus:ring-2 ${
-                errors.emailError ? "focus:ring-red-500" : "focus:ring-blue-500"
+                errors.emailError || error ? "focus:ring-red-500" : "focus:ring-blue-500"
               }`}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -56,9 +76,9 @@ const Login: React.FC = () => {
               type="password"
               placeholder="Password"
               className={`w-full p-3 border ${
-                errors.passwordError ? "border-red-500" : "border-gray-300"
+                errors.passwordError || error ? "border-red-500" : "border-gray-300"
               } rounded-md focus:outline-none focus:ring-2 ${
-                errors.passwordError
+                errors.passwordError || error
                   ? "focus:ring-red-500"
                   : "focus:ring-blue-500"
               }`}
@@ -73,11 +93,16 @@ const Login: React.FC = () => {
             )}
           </div>
 
+          {error && (
+            <p className="text-red-500 text-sm mb-4">{error}</p>
+          )}
+
           <button
             type="submit"
             className="w-full bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 transition duration-200"
+            disabled={loading}
           >
-            Login
+            {loading ? "Logging in..." : "Login"}
           </button>
         </form>
 
@@ -92,7 +117,7 @@ const Login: React.FC = () => {
       </div>
 
       <p className="text-center text-gray-500 mt-1">
-        Don&apos;t got a Clever Messenger account yet?
+        Don't got a Clever Messenger account yet?
       </p>
     </div>
   );
