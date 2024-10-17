@@ -43,7 +43,6 @@ const AutoResponse = () => {
         >
           <option value="Open AI">Open AI</option>
           <option value="Static">Static</option>
-          <option value="Integration 1">Integration 1</option>
         </select>
 
         {commentType === "Static" && (

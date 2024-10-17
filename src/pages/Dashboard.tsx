@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import {
   ChevronLeft,
   ChevronRight,
@@ -12,10 +12,7 @@ const PostEngagement: React.FC = () => {
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
-  const [dropdownOpen, setDropdownOpen] = useState<number | null>(null);
   const totalPages = 2;
-
-  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const posts = [
     {
@@ -100,7 +97,6 @@ const PostEngagement: React.FC = () => {
     },
   ];
 
- 
   const filteredPosts = posts.filter((post) =>
     post.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -111,30 +107,10 @@ const PostEngagement: React.FC = () => {
     }
   };
 
- 
-  const toggleDropdown = (id: number) => {
-    setDropdownOpen((prevState) => (prevState === id ? null : id));
-  };
-
   const handleEdit = (id: number) => {
     console.log("🚀 ~ handleEdit ~ id:", id);
     navigate(`/edit-post-engagement`);
   };
- 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setDropdownOpen(null);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
 
   return (
     <div className="p-6 bg-[#f0f4ff] min-h-screen">
@@ -204,7 +180,7 @@ const PostEngagement: React.FC = () => {
                 <td className="p-2">{post.engaged}</td>
                 <td className="p-2">{post.acquired}</td>
                 <td className="p-2">{post.conversion}</td>
-                <td className="p-2 relative" ref={dropdownRef}>
+                <td className="p-2 relative">
                   <button
                     className="btn btn-outline btn-sm"
                     onClick={() => handleEdit(post.id)}
