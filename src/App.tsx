@@ -5,6 +5,7 @@ import { RootState } from './store';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard.tsx';
+import EditPostEngagement from './pages/EditPostEngagement.tsx';
 import HeaderLayout from './layouts/HeaderLayout';
 import PrivateRoute from './components/auth-guard/PrivateRoute';
 
@@ -19,6 +20,7 @@ const App: React.FC = () => {
           <Route element={<HeaderLayout />}>
             <Route path="home" element={<Home />} />
             <Route path=":id/dashboard" element={<Dashboard />} />
+            <Route path="edit-post-engagement" element={<EditPostEngagement />} />
           </Route>
         </Route>
 
