@@ -85,14 +85,14 @@ const EditPostEngagement = () => {
                 title="Exclude Comments With These Keywords"
                 keywords={excludeKeywords}
                 setKeywords={setExcludeKeywords}
-                badgeColor="badge-info badge-outline "
+                badgeColor="badge-info badge-outline"
               />
 
               <KeywordSection
                 title="Only Trigger For Comments With These Keywords"
                 keywords={triggerKeywords}
                 setKeywords={setTriggerKeywords}
-                badgeColor="badge-success badge-outline "
+                badgeColor="badge-success badge-outline"
               />
             </>
           )}
