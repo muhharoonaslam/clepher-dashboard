@@ -50,8 +50,6 @@ const EditPostEngagement = () => {
 
           {activeTab === "settings" && (
             <>
-              <h2 className="text-lg font-semibold mb-4">Settings</h2>
-
               <div className="form-control mb-4">
                 <label className="label cursor-pointer justify-between">
                   <span className="label-text">

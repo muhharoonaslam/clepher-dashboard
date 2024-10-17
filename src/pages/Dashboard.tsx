@@ -108,7 +108,6 @@ const PostEngagement: React.FC = () => {
   };
 
   const handleEdit = (id: number) => {
-    console.log("🚀 ~ handleEdit ~ id:", id);
     navigate(`/edit-post-engagement`);
   };
 
@@ -116,7 +115,7 @@ const PostEngagement: React.FC = () => {
     <div className="p-6 bg-[#f0f4ff] min-h-screen">
       <h2 className="text-xl font-semibold mb-4">Post Engagements</h2>
 
-      <div className="flex justify-between items-center mb-4">
+      <div className="flex flex-col md:flex-row justify-between items-center mb-4 space-y-4 md:space-y-0 md:space-x-4">
         <input
           type="text"
           placeholder="Search..."
@@ -125,7 +124,7 @@ const PostEngagement: React.FC = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
         <div className="dropdown dropdown-end">
-          <label tabIndex={0} className="btn">
+          <label tabIndex={0} className="btn w-full md:w-auto">
             Bulk Actions
           </label>
           <ul
@@ -142,7 +141,7 @@ const PostEngagement: React.FC = () => {
         </div>
       </div>
 
-      <div className="bg-white rounded-2xl shadow-md border p-5">
+      <div className="bg-white rounded-2xl shadow-md border p-5 overflow-x-auto">
         <table className="table-auto w-full border-gray-100">
           <thead>
             <tr className="text-slate-400 font-light text-left">
@@ -194,7 +193,7 @@ const PostEngagement: React.FC = () => {
         </table>
       </div>
 
-      <div className="flex justify-between items-center mt-6">
+      <div className="flex flex-col md:flex-row justify-between items-center mt-6 space-y-4 md:space-y-0">
         <p>
           Page {currentPage} of {totalPages} &bull; Go to page:{" "}
           <input

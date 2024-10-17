@@ -18,11 +18,11 @@ const Home: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#f0f4ff]">
-      <div className="p-8">
-        <button className="bg-blue-500 text-white px-4 py-2 rounded-md mb-6">
+      <div className="p-4 md:p-8">
+        <button className="bg-blue-500 text-white px-4 py-2 rounded-md mb-6 w-full md:w-auto">
           + Create Bot
         </button>
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {bots.map((bot) => (
             <BotCard
               key={bot.id}
