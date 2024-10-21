@@ -3,15 +3,17 @@ import ReactionSelector from "../components/static/ReactionSelector";
 import KeywordSection from "../components/core/KeywordSelection";
 import PostPreview from "../components/static/PostPreview";
 import AutoResponse from "../components/static/AutoResponse";
+import PrivateReplySettings from "../components/static/post-engagment/PrivateReplySettings";
+import FlowSelection from "../components/static/post-engagment/FlowSelection";
 
-const EditPostEngagement = () => {
-  const [activeTab, setActiveTab] = useState("settings");
-  const [privateReply, setPrivateReply] = useState(true);
-  const [singleReply, setSingleReply] = useState(true);
-  const [excludeKeywords, setExcludeKeywords] = useState([]);
-  const [triggerKeywords, setTriggerKeywords] = useState([]);
+const EditPostEngagement: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<"settings" | "auto-response">("settings");
+  const [privateReply, setPrivateReply] = useState<boolean>(true);
+  const [singleReply, setSingleReply] = useState<boolean>(true);
+  const [excludeKeywords, setExcludeKeywords] = useState<string[]>([]);
+  const [triggerKeywords, setTriggerKeywords] = useState<string[]>([]);
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -20,6 +22,11 @@ const EditPostEngagement = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  // State for Private Reply Flow Selection
+  const [messageType, setMessageType] = useState<string>("Flow");
+  const [selectedFlow, setSelectedFlow] = useState<string>("");
+  const [selectedMessage, setSelectedMessage] = useState<string>("");
 
   return (
     <div className="min-h-screen bg-base-200 p-4 sm:p-6">
@@ -50,32 +57,12 @@ const EditPostEngagement = () => {
 
           {activeTab === "settings" && (
             <>
-              <div className="form-control mb-4">
-                <label className="label cursor-pointer justify-between">
-                  <span className="label-text">
-                    Enable To Privately Reply To First-Level Comments Only
-                  </span>
-                  <input
-                    type="checkbox"
-                    className="toggle  bg-blue-500"
-                    checked={privateReply}
-                    onChange={() => setPrivateReply(!privateReply)}
-                  />
-                </label>
-              </div>
-              <div className="form-control mb-6">
-                <label className="label cursor-pointer justify-between">
-                  <span className="label-text">
-                    Send Message To The Same User Only Once Per Post
-                  </span>
-                  <input
-                    type="checkbox"
-                    className="toggle  bg-blue-500"
-                    checked={singleReply}
-                    onChange={() => setSingleReply(!singleReply)}
-                  />
-                </label>
-              </div>
+              <PrivateReplySettings
+                privateReply={privateReply}
+                setPrivateReply={setPrivateReply}
+                singleReply={singleReply}
+                setSingleReply={setSingleReply}
+              />
 
               <ReactionSelector />
 
@@ -91,6 +78,15 @@ const EditPostEngagement = () => {
                 keywords={triggerKeywords}
                 setKeywords={setTriggerKeywords}
                 badgeColor="badge-success badge-outline"
+              />
+
+              <FlowSelection
+                messageType={messageType}
+                setMessageType={setMessageType}
+                selectedFlow={selectedFlow}
+                setSelectedFlow={setSelectedFlow}
+                selectedMessage={selectedMessage}
+                setSelectedMessage={setSelectedMessage}
               />
             </>
           )}
