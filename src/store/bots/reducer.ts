@@ -1,12 +1,5 @@
 import { Action } from "redux";
-
-interface Bot {
-  id: string;
-  name: string;
-  genre: string;
-  totalSubscribers: number;
-  activeSubscribers: number;
-}
+import { Bot } from "../../types";
 
 interface BotsState {
   data: Bot[];

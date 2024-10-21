@@ -3,9 +3,10 @@ import { useSelector } from "react-redux";
 import { RootState } from "../store";
 import BotCard from "../components/static/BotCard";
 import { useNavigate } from "react-router-dom";
+import { Bot } from "../types";
 
 const Home: React.FC = () => {
-  const bots = useSelector((state: RootState) => state.bots.data);
+  const bots: Bot[] = useSelector((state: RootState) => state.bots.data);
   const navigate = useNavigate();
 
   const handleDashboard = (id: string) => {
