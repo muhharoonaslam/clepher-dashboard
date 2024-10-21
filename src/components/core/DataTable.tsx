@@ -81,7 +81,6 @@ const DataTable = <T,>({
         </tbody>
       </table>
 
-      {/* Pagination */}
       <div className="flex flex-col sm:flex-row justify-between items-center mt-4">
         <p className="text-xs sm:text-sm mb-2 sm:mb-0">
           Showing {startIndex + 1} to{" "}

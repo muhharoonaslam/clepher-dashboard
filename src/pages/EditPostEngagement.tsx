@@ -28,93 +28,89 @@ const EditPostEngagement: React.FC = () => {
   const [selectedMessage, setSelectedMessage] = useState<string>("");
 
   return (
-    <div className="min-h-screen bg-base-200 p-4 sm:p-6">
-      <div className="flex flex-col md:flex-row">
-        <div className="w-full md:w-1/3 bg-base-100 p-4 sm:p-6 rounded-lg shadow-lg md:mr-6">
-          <div className="tabs tabs-boxed mb-6 tabs-lg font-semibold">
-            <a
-              className={`tab transition-all duration-300 ease-in-out transform ${
-                activeTab === "settings"
-                  ? "tab-active text-white !bg-blue-500"
-                  : "text-gray-500 hover:text-blue-500"
-              }`}
-              onClick={() => setActiveTab("settings")}
-            >
-              Settings
-            </a>
-            <a
-              className={`tab transition-all duration-300 ease-in-out transform ${
-                activeTab === "auto-response"
-                  ? "tab-active text-white !bg-blue-500"
-                  : "text-gray-500 hover:text-blue-500"
-              }`}
-              onClick={() => setActiveTab("auto-response")}
-            >
-              Auto-Response
-            </a>
-          </div>
-
-          {activeTab === "settings" && (
-            <>
-              <PrivateReplySettings
-                privateReply={privateReply}
-                setPrivateReply={setPrivateReply}
-                singleReply={singleReply}
-                setSingleReply={setSingleReply}
-              />
-
-              <ReactionSelector />
-
-              <KeywordSection
-                title="Exclude Comments With These Keywords"
-                keywords={excludeKeywords}
-                setKeywords={setExcludeKeywords}
-                badgeColor="badge-info badge-outline"
-              />
-
-              <KeywordSection
-                title="Only Trigger For Comments With These Keywords"
-                keywords={triggerKeywords}
-                setKeywords={setTriggerKeywords}
-                badgeColor="badge-success badge-outline"
-              />
-
-              <FlowSelection
-                messageType={messageType}
-                setMessageType={setMessageType}
-                selectedFlow={selectedFlow}
-                setSelectedFlow={setSelectedFlow}
-                selectedMessage={selectedMessage}
-                setSelectedMessage={setSelectedMessage}
-              />
-            </>
-          )}
-
-          {activeTab === "auto-response" && <AutoResponse />}
+    <div className="bg-base-200 p-4 sm:p-6  flex flex-col md:flex-row">
+      <div className="w-full md:w-1/3 bg-base-100 px-4 sm:px-6 rounded-lg shadow-lg md:mr-6 flex flex-col md:h-[calc(100vh-100px)] overflow-y-auto">
+        <div className="tabs tabs-boxed mb-6 tabs-lg font-semibold py-4 sm:py-4 sticky top-0 bg-white z-10">
+          <a
+            className={`tab transition-all duration-300 ease-in-out transform ${
+              activeTab === "settings"
+                ? "tab-active text-white !bg-blue-500"
+                : "text-gray-500 hover:text-blue-500"
+            }`}
+            onClick={() => setActiveTab("settings")}
+          >
+            Settings
+          </a>
+          <a
+            className={`tab transition-all duration-300 ease-in-out transform ${
+              activeTab === "auto-response"
+                ? "tab-active text-white !bg-blue-500"
+                : "text-gray-500 hover:text-blue-500"
+            }`}
+            onClick={() => setActiveTab("auto-response")}
+          >
+            Auto-Response
+          </a>
         </div>
 
-        <div className="w-full md:flex-1 bg-base-100 p-4 sm:p-6 rounded-lg shadow-lg mt-6 md:mt-0">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-4">
-            <h2 className="text-lg md:text-xl font-semibold">Preview Post</h2>
-            <button
-              className="btn bg-blue-500 text-white mt-4 md:mt-0 md:ml-4"
-              onClick={openModal}
-            >
-              Post ID / URL
-            </button>
-          </div>
+        {activeTab === "settings" && (
+          <>
+            <PrivateReplySettings
+              privateReply={privateReply}
+              setPrivateReply={setPrivateReply}
+              singleReply={singleReply}
+              setSingleReply={setSingleReply}
+            />
 
-          <div className="flex justify-center">
-            <div className="w-full lg:w-2/3 xl:w-1/2">
-              <PostPreview
-                isModalOpen={isModalOpen}
-                openModal={openModal}
-                closeModal={closeModal}
-              />
-              <button className="btn bg-blue-500 text-white w-full mt-10">
-                Select This Post
-              </button>
-            </div>
+            <ReactionSelector />
+
+            <KeywordSection
+              title="Exclude Comments With These Keywords"
+              keywords={excludeKeywords}
+              setKeywords={setExcludeKeywords}
+              badgeColor="badge-info badge-outline"
+            />
+
+            <KeywordSection
+              title="Only Trigger For Comments With These Keywords"
+              keywords={triggerKeywords}
+              setKeywords={setTriggerKeywords}
+              badgeColor="badge-success badge-outline"
+            />
+
+            <FlowSelection
+              messageType={messageType}
+              setMessageType={setMessageType}
+              selectedFlow={selectedFlow}
+              setSelectedFlow={setSelectedFlow}
+              selectedMessage={selectedMessage}
+              setSelectedMessage={setSelectedMessage}
+            />
+            <div className="m-3"></div>
+          </>
+        )}
+
+        {activeTab === "auto-response" && <AutoResponse />}
+      </div>
+
+      <div className="w-full md:flex-1 bg-base-100 p-4 sm:p-6 rounded-lg shadow-lg mt-6 md:mt-0 md:h-[calc(100vh-100px)]">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-4">
+          <h2 className="text-lg md:text-xl font-semibold">Preview Post</h2>
+          <button
+            className="btn bg-blue-500 text-white mt-4 md:mt-0 md:ml-4"
+            onClick={openModal}
+          >
+            Post ID / URL
+          </button>
+        </div>
+
+        <div className="flex justify-center h-full">
+          <div className="w-full lg:w-2/3 xl:w-1/2 h-full flex flex-col">
+            <PostPreview
+              isModalOpen={isModalOpen}
+              openModal={openModal}
+              closeModal={closeModal}
+            />
           </div>
         </div>
       </div>
