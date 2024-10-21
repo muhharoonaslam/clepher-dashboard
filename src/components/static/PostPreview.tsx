@@ -54,7 +54,7 @@ const PostPreview: React.FC<PostPreviewProps> = ({
                   placeholder="Post ID / URL"
                   className="input input-bordered w-full "
                 />
-                <button className="btn btn-primary">Grab Post</button>
+                <button className="btn bg-blue-500 text-white">Grab Post</button>
               </div>
             </div>
             <div className="modal-action">

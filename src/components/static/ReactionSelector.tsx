@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Info } from "lucide-react";
+import { Info, Leaf } from "lucide-react";
 
 const reactionTypes = [
   { name: "Like", emoji: "👍" },
@@ -33,7 +33,7 @@ const ReactionSelector: React.FC = () => {
           <button
             key={reaction.name}
             className={`btn btn-circle text-xl md:text-2xl justify-self-center ${
-              selectedReactions.includes(reaction.name) ? "btn-primary" : "btn-ghost"
+              selectedReactions.includes(reaction.name) ? "bg-blue-500 text-white" : "btn-ghost"
             }`}
             onClick={() => toggleReaction(reaction.name)}
           >
@@ -42,14 +42,13 @@ const ReactionSelector: React.FC = () => {
         ))}
       </div>
 
-      <button
-        className="btn btn-primary w-full"
-        disabled={selectedReactions.length === 0}
+      <div
+        className="bg-blue-500 text-white w-full rounded-lg p-4 text-center"
       >
         {selectedReactions.length > 0
-          ? `Require ${selectedReactions.join(" or ")}`
+          ? `Require ${selectedReactions.join(", ")}`
           : "Select reactions"}
-      </button>
+      </div>
     </div>
   );
 };

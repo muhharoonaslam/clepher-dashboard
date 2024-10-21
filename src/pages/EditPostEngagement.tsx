@@ -22,9 +22,9 @@ const EditPostEngagement = () => {
   };
 
   return (
-    <div className="min-h-screen bg-base-200 p-6">
-      <div className="flex">
-        <div className="w-1/3 bg-base-100 p-6 rounded-lg shadow-lg mr-6">
+    <div className="min-h-screen bg-base-200 p-4 sm:p-6">
+      <div className="flex flex-col md:flex-row">
+        <div className="w-full md:w-1/3 bg-base-100 p-4 sm:p-6 rounded-lg shadow-lg md:mr-6">
           <div className="tabs tabs-boxed mb-6 tabs-lg font-semibold">
             <a
               className={`tab transition-all duration-300 ease-in-out transform ${
@@ -57,7 +57,7 @@ const EditPostEngagement = () => {
                   </span>
                   <input
                     type="checkbox"
-                    className="toggle"
+                    className="toggle  bg-blue-500"
                     checked={privateReply}
                     onChange={() => setPrivateReply(!privateReply)}
                   />
@@ -70,7 +70,7 @@ const EditPostEngagement = () => {
                   </span>
                   <input
                     type="checkbox"
-                    className="toggle"
+                    className="toggle  bg-blue-500"
                     checked={singleReply}
                     onChange={() => setSingleReply(!singleReply)}
                   />
@@ -98,17 +98,24 @@ const EditPostEngagement = () => {
           {activeTab === "auto-response" && <AutoResponse />}
         </div>
 
-        <div className="flex-1 bg-base-100 p-6 rounded-lg shadow-lg">
-        <div className="flex justify-between items-center mb-4"> 
-          <h2 className="text-lg font-semibold">Preview Post</h2>
-          <button className="btn bg-blue-500 text-white ml-4" onClick={openModal}>
-            Post ID / URL
-          </button>
-        </div>
+        <div className="w-full md:flex-1 bg-base-100 p-4 sm:p-6 rounded-lg shadow-lg mt-6 md:mt-0">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-4">
+            <h2 className="text-lg md:text-xl font-semibold">Preview Post</h2>
+            <button
+              className="btn bg-blue-500 text-white mt-4 md:mt-0 md:ml-4"
+              onClick={openModal}
+            >
+              Post ID / URL
+            </button>
+          </div>
 
-          <div className="flex justify-center ">
-            <div className="w-1/2 ">
-              <PostPreview isModalOpen={isModalOpen} openModal={openModal} closeModal={closeModal} />
+          <div className="flex justify-center">
+            <div className="w-full lg:w-2/3 xl:w-1/2">
+              <PostPreview
+                isModalOpen={isModalOpen}
+                openModal={openModal}
+                closeModal={closeModal}
+              />
               <button className="btn bg-blue-500 text-white w-full mt-10">
                 Select This Post
               </button>
