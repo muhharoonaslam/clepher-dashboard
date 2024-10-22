@@ -58,8 +58,8 @@ const EditPostEngagement: React.FC = () => {
             </button>
           </div>
         </div>
-        <div className="p-4 sm:p-6 sm:pt-0 flex flex-col md:flex-row   bg-[#f2f7ff]">
-          <div className="w-full md:w-1/3 bg-base-100  flex flex-col md:h-[calc(100vh-100px)] overflow-y-auto">
+        <div className="p-4 sm:p-6 sm:pt-0 flex flex-col md:flex-row  rounded-xl bg-[#f2f7ff]">
+          <div className="w-full md:w-2/5 bg-base-100  flex flex-col  rounded-xl rounded-tr-none">
             <div className="w-full flex border-b border-gray-300">
               <button
                 className={`w-1/2 text-center py-4 transition-colors duration-300 relative ${
@@ -88,7 +88,7 @@ const EditPostEngagement: React.FC = () => {
                 )}
               </button>
             </div>
-            <div className="px-4 sm:px-6 py-6">
+            <div className="px-4 sm:px-6 py-6 md:h-[calc(100vh-160px)] overflow-y-auto ">
               {activeTab === "settings" && (
                 <>
                   <PrivateReplySettings
@@ -130,16 +130,16 @@ const EditPostEngagement: React.FC = () => {
             </div>
           </div>
 
-          <div className="w-full md:flex-1 bg-base-100 p-4 sm:p-6 mt-6 md:mt-0 md:h-[calc(100vh-100px)]">
-            <div className="flex flex-col md:flex-row justify-between items-center mb-4">
+          <div className="w-full md:flex-1 bg-base-100 mt-6 md:mt-0 md:h-[calc(100vh-100px)] rounded-bl-none rounded-xl">
+            <div className="flex flex-col md:flex-row justify-between items-center mb-6  rounded-tr-xl bg-blue-500 text-white p-[0.28rem] px-5 border-b border-gray-300">
               <button
                 className="btn bg-blue-500 text-white mt-4 md:mt-0 md:ml-4 invisible "
               >
                 Post ID / URL
               </button>
-              <h2 className="text-lg md:text-xl font-semibold">Select a Post</h2>
+              <h2 className="text-lg md:text-xl">Select a Post</h2>
               <button
-                className="btn bg-blue-500 text-white mt-4 md:mt-0 md:ml-4"
+                className="btn btn-sm text-white mt-4 md:mt-0 md:ml-4 btn-outline"
                 onClick={openModal}
               >
                 Post ID / URL

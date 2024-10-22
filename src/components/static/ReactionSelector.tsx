@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Info, Leaf } from "lucide-react";
+import { Info } from "lucide-react";
 
 const reactionTypes = [
   { name: "Like", emoji: "👍" },
