@@ -13,7 +13,7 @@ import {
 
 const Sidebar: React.FC = () => {
   return (
-    <div className="w-22 border h-screen bg-white shadow-md flex flex-col items-center py-6">
+    <div className="w-22 border h-screen bg-white flex flex-col items-center py-6">
       <ul className="menu flex flex-col items-center space-y-2">
         <li>
           <NavLink

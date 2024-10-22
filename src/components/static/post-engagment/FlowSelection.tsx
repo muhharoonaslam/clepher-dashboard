@@ -19,11 +19,11 @@ const FlowSelection: React.FC<FlowSelectionProps> = ({
   setSelectedMessage,
 }) => (
   <>
-    <div className="flex items-center justify-between mb-4">
-      <h3 className="font-semibold">Private Reply After Post Engagement</h3>
+    <div className="flex items-center justify-between mb-2 border-b-[1px] pb-2">
+      <h3 className="font-semibold ">Private Reply After Post Engagement</h3>
       <Info size={16} className="text-base-content opacity-60" />
     </div>
-    <div className="form-control mb-4">
+    <div className="form-control mb-2">
       <label className="label">
         <span className="label-text">Select message type</span>
       </label>
@@ -38,7 +38,7 @@ const FlowSelection: React.FC<FlowSelectionProps> = ({
     </div>
 
     {messageType === "Flow" && (
-      <div className="form-control mb-4">
+      <div className="form-control mb-2">
         <label className="label">
           <span className="label-text">Select flow</span>
         </label>
@@ -56,7 +56,7 @@ const FlowSelection: React.FC<FlowSelectionProps> = ({
 
     {messageType === "Single Message" && (
       <>
-        <div className="form-control mb-4">
+        <div className="form-control mb-2">
           <label className="label">
             <span className="label-text">Select flow</span>
           </label>
@@ -71,7 +71,7 @@ const FlowSelection: React.FC<FlowSelectionProps> = ({
           </select>
         </div>
 
-        <div className="form-control mb-4">
+        <div className="form-control mb-2">
           <label className="label">
             <span className="label-text">Select message</span>
           </label>

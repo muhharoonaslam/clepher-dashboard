@@ -22,8 +22,8 @@ const ReactionSelector: React.FC = () => {
   };
 
   return (
-    <div className="mb-6">
-      <div className="flex items-center justify-between mb-4">
+    <div className="my-6">
+      <div className="flex items-center justify-between mb-4 border-b-[1px] pb-2">
         <h3 className="font-semibold">Require a Post Reaction</h3>
         <Info size={16} className="text-base-content opacity-60" />
       </div>

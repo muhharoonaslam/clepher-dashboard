@@ -5,7 +5,8 @@ const AutoResponse = () => {
   const [commentType, setCommentType] = useState("Open AI");
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
-  const [selectedIntegration, setSelectedIntegration] = useState("Integration 1");
+  const [selectedIntegration, setSelectedIntegration] =
+    useState("Integration 1");
   const [selectedAssistance, setSelectedAssistance] = useState("Assistance 1");
 
   const handleAddComment = () => {
@@ -24,10 +25,16 @@ const AutoResponse = () => {
     <div>
       <div className="form-control mb-6">
         <label className="label cursor-pointer justify-between">
-          <span className="label-text">Enable To Automatically Like Comments</span>
+          <span className="label-text">
+            Enable To Automatically Like Comments
+          </span>
           <input
             type="checkbox"
-            className="toggle"
+            className={`toggle border ${
+              autoLike
+                ? "bg-blue-500 border-blue-500"
+                : "bg-gray-400 border-gray-400"
+            }`}
             checked={autoLike}
             onChange={() => setAutoLike(!autoLike)}
           />
@@ -35,7 +42,11 @@ const AutoResponse = () => {
       </div>
 
       <div className="mb-6">
-        <p className="font-semibold mb-2">Reply In Comments</p>
+        <p className="font-semibold mb-2  border-b-[1px] pb-2 mb-4">
+          Reply In Comments
+        </p>
+        <p className="my-2">Cooment type</p>
+
         <select
           className="select select-bordered w-full mb-2"
           value={commentType}
@@ -82,6 +93,8 @@ const AutoResponse = () => {
 
         {commentType === "Open AI" && (
           <>
+            <p className="my-2">Select Integration</p>
+
             <select
               className="select select-bordered w-full mb-2"
               value={selectedIntegration}
@@ -90,6 +103,7 @@ const AutoResponse = () => {
               <option value="Integration 1">Integration 1</option>
               <option value="Integration 2">Integration 2</option>
             </select>
+            <p className="my-2">Select Assistance</p>
 
             <select
               className="select select-bordered w-full"

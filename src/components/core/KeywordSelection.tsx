@@ -38,8 +38,8 @@ const KeywordSelection: React.FC<KeywordSelectionProps> = ({
 
   return (
     <div className="mb-6">
-      <div className="flex items-center justify-between mb-2">
-        <p className="font-semibold">{title}</p>
+      <div className="flex items-center justify-between mb-1">
+        <p className="color-[#394e6a] font-normal">{title}</p>
         <Info size={16} className="text-base-content opacity-60" />
       </div>
       <div className="flex flex-wrap gap-2 mb-4 text-lg">
