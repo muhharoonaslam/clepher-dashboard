@@ -28,7 +28,7 @@ const EditPostEngagement: React.FC = () => {
   const [selectedMessage, setSelectedMessage] = useState<string>("");
 
   return (
-    <div className=" p-4 sm:p-6  flex flex-col md:flex-row  bg-[#f0f4ff]">
+    <div className=" p-4 sm:p-6  flex flex-col md:flex-row  bg-[#f2f7ff]">
       <div className="w-full md:w-1/3 bg-base-100 px-4 sm:px-6 rounded-lg shadow-lg md:mr-6 flex flex-col md:h-[calc(100vh-100px)] overflow-y-auto">
         <div className="tabs tabs-boxed mb-6 tabs-lg font-semibold py-4 sm:py-4 sticky top-0 bg-white z-10">
           <a

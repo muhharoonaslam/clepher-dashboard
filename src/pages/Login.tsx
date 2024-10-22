@@ -47,7 +47,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-[#f0f4ff] px-4">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-[#f2f7ff] px-4">
       <div className="bg-white p-6 md:p-10 rounded-3xl shadow-lg w-full max-w-md lg:max-w-lg mb-2">
         <div className="flex justify-center mb-4">
           <img
